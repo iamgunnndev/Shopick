@@ -1,0 +1,20 @@
+.navbar
+{
+    background-color: #ffffff;
+}
+.navbar-light .navbar-nav .nav-link
+{
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+}
+
+.navbar-light .navbar-nav .nav-link:hover
+{
+    text-decoration: underline gray
+}
+
+.navbar-brand
+{
+    color: rgb(59, 0, 114);
+    
+}
