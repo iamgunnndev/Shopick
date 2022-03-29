@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { ShophomeComponent } from './shophome/shophome.component';
 import { LoginComponent } from './login/login.component';
 import { DetailComponent } from './detail/detail.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {GalleriaModule} from 'primeng/galleria';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { DetailComponent } from './detail/detail.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    GalleriaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
