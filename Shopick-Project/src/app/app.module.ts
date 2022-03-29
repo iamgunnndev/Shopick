@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { DetailComponent } from './detail/detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {GalleriaModule} from 'primeng/galleria';
+import { GallaryDirective } from './gallary.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {GalleriaModule} from 'primeng/galleria';
     HomeComponent,
     ShophomeComponent,
     LoginComponent,
-    DetailComponent
+    DetailComponent,
+    GallaryDirective
   ],
   imports: [
     BrowserModule,
