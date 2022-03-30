@@ -9,7 +9,6 @@ import { LoginComponent } from './login/login.component';
 import { DetailComponent } from './detail/detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GallaryDirective } from './gallary.directive'; 
-import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
