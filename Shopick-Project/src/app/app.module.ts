@@ -8,7 +8,14 @@ import { ShophomeComponent } from './shophome/shophome.component';
 import { LoginComponent } from './login/login.component';
 import { DetailComponent } from './detail/detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { GallaryDirective } from './gallary.directive'; 
+<<<<<<< Updated upstream
+import { GallaryDirective } from './gallary.directive';
+import { LoginRegisterComponent } from './login-register/login-register.component'; 
+=======
+import {GalleriaModule} from 'primeng/galleria';
+import { GallaryDirective } from './gallary.directive';
+import { RegisterComponent } from './register/register.component';
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -17,7 +24,9 @@ import { GallaryDirective } from './gallary.directive';
     ShophomeComponent,
     LoginComponent,
     DetailComponent,
-    GallaryDirective
+    GallaryDirective,
+    RegisterComponent,
+    LoginRegisterComponent
   ],
   imports: [
     BrowserModule,
