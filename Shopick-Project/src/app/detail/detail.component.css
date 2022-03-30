@@ -20,3 +20,20 @@
     border: 2px solid rgb(121, 119, 119);
     opacity: 1;
 }
+.header{
+    position: absolute;
+    top: 32%;
+    left: 43%;
+    transform: translate(-50%,-50%);
+}
+.header h1{
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+}
+
+.header h2{
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+}
+
+

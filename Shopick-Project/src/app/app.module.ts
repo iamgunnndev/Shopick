@@ -8,8 +8,8 @@ import { ShophomeComponent } from './shophome/shophome.component';
 import { LoginComponent } from './login/login.component';
 import { DetailComponent } from './detail/detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {GalleriaModule} from 'primeng/galleria';
-import { GallaryDirective } from './gallary.directive';
+import { GallaryDirective } from './gallary.directive'; 
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,6 @@ import { GallaryDirective } from './gallary.directive';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    GalleriaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
