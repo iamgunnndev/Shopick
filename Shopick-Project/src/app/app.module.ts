@@ -11,6 +11,7 @@ import { LoginRegisterComponent } from './login-register/login-register.componen
 import { ProfileComponent } from './profile/profile.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { PayComponent } from './pay/pay.component';
 
 
 
@@ -24,6 +25,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     ProfileComponent,
     PurchaseComponent,
     EditProfileComponent,
+    PayComponent,
 
   ],
   imports: [
