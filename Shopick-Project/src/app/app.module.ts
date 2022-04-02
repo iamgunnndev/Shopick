@@ -7,7 +7,9 @@ import { HomeComponent } from './home/home.component';
 import { DetailComponent } from './detail/detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GallaryDirective } from './gallary.directive';
-import { LoginRegisterComponent } from './login-register/login-register.component'; 
+import { LoginRegisterComponent } from './login-register/login-register.component';
+import { ProfileComponent } from './profile/profile.component';
+
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { LoginRegisterComponent } from './login-register/login-register.componen
     HomeComponent,
     DetailComponent,
     GallaryDirective,
-    LoginRegisterComponent
+    LoginRegisterComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
