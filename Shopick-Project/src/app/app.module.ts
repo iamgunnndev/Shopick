@@ -10,6 +10,8 @@ import { GallaryDirective } from './gallary.directive';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PurchaseComponent } from './purchase/purchase.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { PurchaseComponent } from './purchase/purchase.component';
     LoginRegisterComponent,
     ProfileComponent,
     PurchaseComponent,
+    EditProfileComponent,
+
   ],
   imports: [
     BrowserModule,
