@@ -1,0 +1,52 @@
+
+<div class="container text-center">
+    <img [src]="url" height="200"><br>
+    <input type="file"(change)="onselecrFile($event)">
+    <button type="submit" class="btn btn-outline-primary">Upload</button>
+</div>
+
+<div class="container">
+    <form [formGroup]="addForm">
+        <div class="form-group">
+            <label >Product Name</label>
+            <input type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label >Details</label><br>
+            <textarea ng-model="myTextarea" class="form-control"></textarea>
+        </div>     
+    </form>
+
+    <div class="category">
+            <label>Category</label>
+            <form [formGroup]="contactForm" (ngSubmit)="submit()">
+ 
+                <p>
+                 
+                  <select formControlName="country">
+                    <option [ngValue]="null" disabled>Select category</option>
+                    <option *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
+                    
+                  </select>
+                 
+                </p>
+                 
+                </form>
+        </div>
+
+    <div class="detail">
+        <form [formGroup]="addForm">
+            <div class="form-group">
+                <label >Price</label>
+                <input type="text" class="form-control">
+            </div>
+    
+            <div class="form-group">
+                <input  type="number" class="form-control" id="formGroupExampleInput" placeholder="1">
+              </div>   
+              
+        </form>
+    </div>
+    <input type="submit" value="Sumbit " class = "btn btn-primary">
+</div>

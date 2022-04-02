@@ -8,6 +8,7 @@ import { LoginRegisterComponent } from './login-register/login-register.componen
 import { PayComponent } from './pay/pay.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PurchaseComponent } from './purchase/purchase.component';
+import { UploadComponent } from './upload/upload.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:'user/profile',component:ProfileComponent},
   {path:'user/purchase',component:PurchaseComponent},
   {path:'user/edit-profile',component:EditProfileComponent},
-  {path:'payment',component:PayComponent}
+  {path:'payment',component:PayComponent},
+  {path:'upload',component:UploadComponent}
 
 ];
 
