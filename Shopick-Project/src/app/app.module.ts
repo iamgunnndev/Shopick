@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { GallaryDirective } from './gallary.directive';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PurchaseComponent } from './purchase/purchase.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { ProfileComponent } from './profile/profile.component';
     GallaryDirective,
     LoginRegisterComponent,
     ProfileComponent,
+    PurchaseComponent,
   ],
   imports: [
     BrowserModule,
