@@ -13,6 +13,9 @@ import { PurchaseComponent } from './purchase/purchase.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { PayComponent } from './pay/pay.component';
 import { UploadComponent } from './upload/upload.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ShopComponent } from './shop/shop.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -28,12 +31,16 @@ import { UploadComponent } from './upload/upload.component';
     EditProfileComponent,
     PayComponent,
     UploadComponent,
+    ShopComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    CarouselModule,
+    NgbModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
