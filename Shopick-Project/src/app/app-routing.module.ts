@@ -9,16 +9,18 @@ import { PayComponent } from './pay/pay.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { UploadComponent } from './upload/upload.component';
+import { ShopComponent } from './shop/shop.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'detail/:id',component:DetailComponent},
-  {path:'signin',component:LoginRegisterComponent},
+  {path:'member',component:LoginRegisterComponent},
   {path:'user/profile',component:ProfileComponent},
   {path:'user/purchase',component:PurchaseComponent},
   {path:'user/edit-profile',component:EditProfileComponent},
   {path:'payment',component:PayComponent},
-  {path:'upload',component:UploadComponent}
+  {path:'upload',component:UploadComponent},
+  {path:'shop',component:ShopComponent}
 
 ];
 
