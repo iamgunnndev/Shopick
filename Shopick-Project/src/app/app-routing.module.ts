@@ -10,6 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { UploadComponent } from './upload/upload.component';
 import { ShopComponent } from './shop/shop.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -20,8 +21,8 @@ const routes: Routes = [
   {path:'user/edit-profile',component:EditProfileComponent},
   {path:'payment',component:PayComponent},
   {path:'upload',component:UploadComponent},
-  {path:'shop',component:ShopComponent}
-
+  {path:'shop',component:ShopComponent},
+  {path:'cart',component:CartComponent}
 ];
 
 @NgModule({

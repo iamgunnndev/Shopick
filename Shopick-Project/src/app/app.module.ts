@@ -17,8 +17,6 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ShopComponent } from './shop/shop.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
