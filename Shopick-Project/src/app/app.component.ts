@@ -11,6 +11,6 @@ export class AppComponent {
   router: any;
   
   onSubmit(){
-    this.router.navigate(['/cart'])
+    this.router.navigateByUrl(['/cart'])
   }
 }

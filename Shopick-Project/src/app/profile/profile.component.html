@@ -1,86 +1,111 @@
-<head> 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-<body>
+<div class="container">
+    <div class="main-body">
     
-       
+          <!-- Breadcrumb -->
+          <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="">Home</a></li>
+              <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
+              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+            </ol>
+          </nav>
+          <!-- /Breadcrumb -->
+    
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h4>SHOPICK</h4>
+                      <p class="text-secondary mb-1">Member</p>
+                      <p class="text-muted font-size-sm">Bangkok , Thailand</p>
+                 
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-<div class="container emp-profile">
-            <form method="post">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="profile-img">
-                            <img src="../assets/image-profile/proDe.png" alt=""/>
-                            <div class="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
-                            </div>
-                        </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Full Name</h6>
                     </div>
-                    <div class="col-md-6">
-                        <div class="profile-head">
-                                    <h5>
-                                        My name
-                                    </h5>                                   
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="profile-tab" data-toggle="tab" href="user/profile" role="tab" aria-controls="home" aria-selected="true">บัญชีของฉัน</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="purchase-tab" data-toggle="tab" href="user/purchase" role="tab" aria-controls="profile" aria-selected="false">ประวัติการซื้อสินค้า</a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="col-sm-9 text-secondary">
+                      Shopick
                     </div>
-                    <div class="col-md-2">
-                        <a href="user/edit-profile" style="color: black;">แก้ไขข้อมูลส่วนตัว</a>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
                     </div>
+                    <div class="col-sm-9 text-secondary">
+                      shop@shopick.com
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Username</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      shopick
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        099-999-9999
+                    </div>
+                  </div>
+                  <hr>
+            
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <a class="btn btn-dark " target="__blank" href="user/edit-profile">Edit</a>
+                    </div>
+                  </div>
                 </div>
-                <div class="row">
+              </div>
+
+              <div class="row gutters-sm">
+                <div class="col-sm-6 mb-3">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i>Purchase History</h6>
+                      <small>- No Purchase History - </small>
+                    </div>
+                    <a class="btn btn-dark " target="__blank" href="">View</a>
+                  </div>
+                </div>
+                <div class="col-sm-6 mb-3">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i>My Address</h6> 
+                      <small>Street:185 Soi Burirom 4 
+                          Vorachak Road
+                        Buengkum Bangkok
+                    10240</small>
                     
-                    <div class="col-md-8">
-                        <div class="tab-content profile-tab" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>ชื่อผู้ใช้</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>User</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>ชื่อ</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>my name</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Email</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>my email</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>หมายเลขโทรศัพท์</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>123 456 7890</p>
-                                            </div>
-                                        </div>
-                                        
-                            </div>
-                            
-                        </div>
+                      
                     </div>
+                    <a class="btn btn-dark " target="__blank" href="">Edit</a>
+                  </div>
                 </div>
-            </form>           
+              </div>
+
+
+
+            </div>
+          </div>
+
         </div>
-</body>
+    </div>
