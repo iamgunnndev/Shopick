@@ -43,7 +43,7 @@ public class ShopickController {
         return repo.findAll();
     }
 
-    @GetMapping("/inventory")
+    @GetMapping("/inventor")
     public List<inventory> Allinventory(){
         return repo2.findAll();
     }
