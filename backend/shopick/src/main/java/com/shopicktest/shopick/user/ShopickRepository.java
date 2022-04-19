@@ -1,4 +1,4 @@
-package com.shopicktest.shopick;
+package com.shopicktest.shopick.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

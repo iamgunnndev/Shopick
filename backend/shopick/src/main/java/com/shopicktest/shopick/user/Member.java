@@ -1,4 +1,4 @@
-package com.shopicktest.shopick;
+package com.shopicktest.shopick.user;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="member")
+@Table(name="user")
 
 public class Member {
     @Id
