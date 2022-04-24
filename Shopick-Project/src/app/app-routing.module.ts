@@ -11,6 +11,7 @@ import { PurchaseComponent } from './purchase/purchase.component';
 import { UploadComponent } from './upload/upload.component';
 import { ShopComponent } from './shop/shop.component';
 import { CartComponent } from './cart/cart.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path:'payment',component:PayComponent},
   {path:'upload',component:UploadComponent},
   {path:'shop',component:ShopComponent},
-  {path:'cart',component:CartComponent}
+  {path:'cart',component:CartComponent},
+  {path:'product-list',component:ProductListComponent}
 ];
 
 @NgModule({

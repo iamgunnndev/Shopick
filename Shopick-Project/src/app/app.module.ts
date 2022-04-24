@@ -16,6 +16,9 @@ import { UploadComponent } from './upload/upload.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ShopComponent } from './shop/shop.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductListComponent } from './product-list/product-list.component';
+import { HttpClientModule} from '@angular/common/http';
+import { ProductService } from './services/product.service';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PayComponent,
     UploadComponent,
     ShopComponent,
+    ProductListComponent,
 
   ],
   imports: [
@@ -37,10 +41,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     ReactiveFormsModule,
     CarouselModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
 
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
