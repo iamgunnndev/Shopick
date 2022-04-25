@@ -19,6 +19,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductListComponent } from './product-list/product-list.component';
 import { HttpClientModule} from '@angular/common/http';
 import { ProductService } from './services/product.service';
+import { Routes } from '@angular/router';
+import { ProductCategoryMenuComponent } from './product-category-menu/product-category-menu.component';
+
+
 
 @NgModule({
   declarations: [
@@ -34,6 +38,7 @@ import { ProductService } from './services/product.service';
     UploadComponent,
     ShopComponent,
     ProductListComponent,
+    ProductCategoryMenuComponent,
 
   ],
   imports: [

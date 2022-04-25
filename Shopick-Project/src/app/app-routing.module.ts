@@ -14,7 +14,7 @@ import { CartComponent } from './cart/cart.component';
 import { ProductListComponent } from './product-list/product-list.component';
 
 const routes: Routes = [
-  {path:'',component:HomeComponent},
+  
   {path:'detail/:id',component:DetailComponent},
   {path:'member',component:LoginRegisterComponent},
   {path:'user/profile',component:ProfileComponent},
@@ -24,7 +24,12 @@ const routes: Routes = [
   {path:'upload',component:UploadComponent},
   {path:'shop',component:ShopComponent},
   {path:'cart',component:CartComponent},
-  {path:'product-list',component:ProductListComponent}
+  {path:'product-list',component:ProductListComponent},
+  {path: 'category/:id' , component: ProductListComponent},
+  {path: 'category' , component: ProductListComponent},
+  {path: 'products' , component: ProductListComponent},
+  {path: '' , redirectTo: '/products' , pathMatch: 'full'},
+  {path: '**' , redirectTo: '/products' , pathMatch: 'full'}
 ];
 
 @NgModule({
