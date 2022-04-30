@@ -12,9 +12,19 @@ import { UploadComponent } from './upload/upload.component';
 import { ShopComponent } from './shop/shop.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartDetailsComponent } from './cart-details/cart-details.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
-  
+  {path: 'checkout' , component: CheckoutComponent},
+  {path: 'cart-details' , component:CartDetailsComponent},
+  {path: 'products/:id' , component:ProductDetailsComponent},
+  {path: 'search/:keyword' , component: ProductListComponent},
+  {path: 'category/:id/:name', component: ProductListComponent},
+  {path: 'category' , component: ProductListComponent},
+  {path: 'products' , component: ProductListComponent},
   {path:'detail/:id',component:DetailComponent},
   {path:'member',component:LoginRegisterComponent},
   {path:'user/profile',component:ProfileComponent},
@@ -25,11 +35,9 @@ const routes: Routes = [
   {path:'shop',component:ShopComponent},
   {path:'cart',component:CartComponent},
   {path:'product-list',component:ProductListComponent},
-  {path: 'category/:id' , component: ProductListComponent},
-  {path: 'category' , component: ProductListComponent},
-  {path: 'products' , component: ProductListComponent},
   {path: '' , redirectTo: '/products' , pathMatch: 'full'},
   {path: '**' , redirectTo: '/products' , pathMatch: 'full'}
+  
 ];
 
 @NgModule({

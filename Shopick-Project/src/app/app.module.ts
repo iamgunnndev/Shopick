@@ -21,6 +21,12 @@ import { HttpClientModule} from '@angular/common/http';
 import { ProductService } from './services/product.service';
 import { Routes } from '@angular/router';
 import { ProductCategoryMenuComponent } from './product-category-menu/product-category-menu.component';
+import { SearchComponent } from './search/search.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CartStatusComponent } from './cart-status/cart-status.component';
+import { CartDetailsComponent } from './cart-details/cart-details.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+
 
 
 
@@ -39,6 +45,11 @@ import { ProductCategoryMenuComponent } from './product-category-menu/product-ca
     ShopComponent,
     ProductListComponent,
     ProductCategoryMenuComponent,
+    SearchComponent,
+    ProductDetailsComponent,
+    CartStatusComponent,
+    CartDetailsComponent,
+    CheckoutComponent,
 
   ],
   imports: [
@@ -47,7 +58,8 @@ import { ProductCategoryMenuComponent } from './product-category-menu/product-ca
     ReactiveFormsModule,
     CarouselModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
 
   ],
   providers: [ProductService],
