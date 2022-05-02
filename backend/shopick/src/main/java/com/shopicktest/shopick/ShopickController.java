@@ -5,9 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
-import com.shopicktest.shopick.Example.invenRepo;
-import com.shopicktest.shopick.Example.inventory;
+import com.shopicktest.shopick.inventory.invenRepo;
+import com.shopicktest.shopick.inventory.inventory;
 import com.shopicktest.shopick.user.Member;
 import com.shopicktest.shopick.user.ShopickRepository;
 
@@ -28,6 +27,8 @@ public class ShopickController {
     @Autowired
     private invenRepo repo2;
 
+    
+
     @RequestMapping("/hello")
     public String hello(){
         return "hello!!!!";
@@ -47,5 +48,7 @@ public class ShopickController {
     public List<inventory> Allinventory(){
         return repo2.findAll();
     }
+
+    
     
 }

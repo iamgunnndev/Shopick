@@ -16,6 +16,9 @@ import { UploadComponent } from './upload/upload.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ShopComponent } from './shop/shop.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +40,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     ReactiveFormsModule,
     CarouselModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    HttpClientModule
 
   ],
   providers: [],

@@ -1,4 +1,4 @@
-package com.shopicktest.shopick.Example;
+package com.shopicktest.shopick.inventory;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
