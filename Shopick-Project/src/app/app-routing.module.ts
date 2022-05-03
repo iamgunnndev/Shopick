@@ -23,6 +23,7 @@ const routes: Routes = [
   {path: 'products/:id' , component:ProductDetailsComponent},
   {path: 'search/:keyword' , component: ProductListComponent},
   {path: 'category/:id/:name', component: ProductListComponent},
+  {path: 'category/:id', component: ProductListComponent},
   {path: 'category' , component: ProductListComponent},
   {path: 'products' , component: ProductListComponent},
   {path:'detail/:id',component:DetailComponent},
