@@ -13,7 +13,7 @@ import { ProductService } from '../services/product.service';
 export class ProductListComponent implements OnInit {
   
   products: Product[] = [];
-  currentCategoryId!: number ;
+  currentCategoryId!: number  ;
   previousCategoryId: number = 1;
   searchMode: boolean = false;
 
