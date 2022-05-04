@@ -5,9 +5,6 @@ import lombok.Setter;
 import javax.persistence.*;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity
 @Table(name="order_item")
 @Getter
