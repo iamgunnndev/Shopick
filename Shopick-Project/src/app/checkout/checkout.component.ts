@@ -48,7 +48,7 @@ export class CheckoutComponent implements OnInit {
                               [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
     
         phone:new FormControl('',
-                                [Validators.required, Validators.pattern('[0-9]'), 
+                                [Validators.required, Validators.pattern('[- +()0-9]{10}'),
                                 Validators.maxLength(10),
                                 ShopickValidators.notOnlyWhitespace]),
       }),
