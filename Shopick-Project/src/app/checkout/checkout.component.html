@@ -34,9 +34,17 @@
                             <div class="input-space">
                                 <input formControlName="lastName" type="text">
 
-                                <!--Alert-->
-                                
-                                
+                                <!---div *ngIf="lastName!.invalid && (lastName!.dirty || lastName!.touched)" >
+
+                                    <div *ngIf="lastName!.errors?.['required']">
+                                        Last Name is required
+                                    </div>
+
+                                    <div *ngIf="lastName!.errors?.['pattern']">
+                                        Last Name must be at least 2 characters long
+                                    </div>
+
+                                </div--->
       
                             </div>
                         </div>
