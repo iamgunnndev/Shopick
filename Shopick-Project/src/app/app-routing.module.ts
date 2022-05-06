@@ -16,8 +16,12 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartDetailsComponent } from './cart-details/cart-details.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { LoginComponent } from './login/login.component';
+import { OktaCallbackComponent } from '@okta/okta-angular';
 
 const routes: Routes = [
+  {path: 'login/callback', component: OktaCallbackComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'checkout' , component: CheckoutComponent},
   {path: 'cart-details' , component:CartDetailsComponent},
   {path: 'products/:id' , component:ProductDetailsComponent},
