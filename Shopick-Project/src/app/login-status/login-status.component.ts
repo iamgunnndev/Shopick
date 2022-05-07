@@ -1,6 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { OktaAuthStateService, OKTA_AUTH } from '@okta/okta-angular';
-import { OktaAuth } from '@okta/okta-auth-js';
+import { Component, OnInit } from '@angular/core';
+import { OktaAuthService } from '@okta/okta-angular';
+
 
 @Component({
   selector: 'app-login-status',
@@ -12,13 +12,13 @@ export class LoginStatusComponent implements OnInit {
   isAuthenticated: boolean = false;
   userFullName!: string;
 
-  constructor(public oktaAuthService: OktaAuthStateService, @Inject(OKTA_AUTH) private oktaAuth : OktaAuth) { }
+  constructor(private oktaAuthService: OktaAuthService) { }
 
   ngOnInit(): void {
 
     // Subscribe to authentication state changes
-    this.oktaAuthService.authState$.subscribe(
-      (result:any) => {
+    this.oktaAuthService.$authenticationState.subscribe(
+      (result) => {
         this.isAuthenticated = result;
         this.getUserDetails();
       }
@@ -32,7 +32,7 @@ export class LoginStatusComponent implements OnInit {
       // Fetch the logged in user details (user's claims)
       //
       // user full name is exposed as a property name
-      this.oktaAuth.getUser().then(
+      this.oktaAuthService.getUser().then(
         (res) => {
           this.userFullName = res.name!;
         }
@@ -42,6 +42,6 @@ export class LoginStatusComponent implements OnInit {
 
   logout() {
     // Terminates the session with Okta and removes current tokens.
-    this.oktaAuth.signOut();
+    this.oktaAuthService.signOut();
   }
 }

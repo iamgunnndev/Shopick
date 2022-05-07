@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Router, RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { DetailComponent } from './detail/detail.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
@@ -17,9 +17,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartDetailsComponent } from './cart-details/cart-details.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
-import { OktaCallbackComponent } from '@okta/okta-angular';
+import { OktaAuthGuard, OktaCallbackComponent } from '@okta/okta-angular';
+import { MembersPageComponent } from './members-page/members-page.component';
+
 
 const routes: Routes = [
+  {path:'members' , component: MembersPageComponent, canActivate: [OktaAuthGuard]},
   {path: 'login/callback', component: OktaCallbackComponent},
   {path: 'login', component: LoginComponent},
   {path: 'checkout' , component: CheckoutComponent},
@@ -44,6 +47,7 @@ const routes: Routes = [
   {path: '**' , redirectTo: '/products' , pathMatch: 'full'}
   
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

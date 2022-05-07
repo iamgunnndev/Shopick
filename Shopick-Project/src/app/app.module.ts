@@ -29,22 +29,30 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
 import { LoginStatusComponent } from './login-status/login-status.component';
 
+
+
 import {
   OKTA_CONFIG,
   OktaAuthModule,
-  OktaCallbackComponent
+  OktaCallbackComponent,
+
 } from '@okta/okta-angular';
 
 import shopickAppConfig from './config/shopick-app-config';
+import { MembersPageComponent } from './members-page/members-page.component';
+
 
 const oktaConfig = Object.assign({
-  onAuthRequired: (injector:any) => {
+  onAuthRequired: (oktaAuth:any,injector:any) => {
     const router = injector.get(Router);
 
     // Redirect the user to your custom login page
     router.navigate(['/login']);
   }
 }, shopickAppConfig.oidc);
+
+
+
 
 @NgModule({
   declarations: [
@@ -68,6 +76,7 @@ const oktaConfig = Object.assign({
     CheckoutComponent,
     LoginComponent,
     LoginStatusComponent,
+    MembersPageComponent,
 
   ],
   imports: [
