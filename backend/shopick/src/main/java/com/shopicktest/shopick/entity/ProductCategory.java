@@ -1,4 +1,5 @@
-package com.shopicktest.shopick.entity;
+ package com.shopicktest.shopick.entity;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -28,4 +29,17 @@ public class ProductCategory {
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private Set<Product> products;
+
+   /* public void add(Product item) {
+
+        if (item != null) {
+            if (products == null) {
+                products = new HashSet<>();
+            }
+
+            products.add(item);
+            item.setPr(this);
+        }
+    }*/
+
 }
