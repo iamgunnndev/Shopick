@@ -30,5 +30,16 @@ public class ProductCategory {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private Set<Product> products;
 
+   /* public void add(Product item) {
+
+        if (item != null) {
+            if (products == null) {
+                products = new HashSet<>();
+            }
+
+            products.add(item);
+            item.setPr(this);
+        }
+    }*/
 
 }

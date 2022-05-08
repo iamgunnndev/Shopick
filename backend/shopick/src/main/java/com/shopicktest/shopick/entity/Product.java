@@ -31,7 +31,7 @@ public class Product {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "category_id" , nullable = false,referencedColumnName = "id")
+    @JoinColumn(name = "category_id" , nullable = false)
     private ProductCategory category;
 
     @Column (name = "sku")
@@ -62,6 +62,8 @@ public class Product {
     @Column (name = "last_updated")
     @UpdateTimestamp
     private Date lastUpDate;
+    
+    private Product product;
     
     
 }
