@@ -1,52 +1,58 @@
+<div class="col-md-6 offset-md-3">
+    <h1>upload product</h1>
 
-<div class="container text-center">
-    <img [src]="url" height="200"><br>
-    <input type="file"(change)="onselecrFile($event)">
-    <button type="submit" class="btn btn-outline-primary">Upload</button>
-</div>
-
-<div class="container">
-    <form [formGroup]="addForm">
+    <form (ngSubmit) = "onSubmit()">
+        <br>
         <div class="form-group">
-            <label >Product Name</label>
-            <input type="text" class="form-control">
+            <input type="file" (change)="onImageUpload($event)">
         </div>
 
-        <div class="form-group">
-            <label >Details</label><br>
-            <textarea ng-model="myTextarea" class="form-control"></textarea>
-        </div>     
-    </form>
 
-    <div class="category">
-            <label>Category</label>
-            <form [formGroup]="contactForm" (ngSubmit)="submit()">
- 
-                <p>
-                 
-                  <select formControlName="country">
-                    <option [ngValue]="null" disabled>Select category</option>
-                    <option *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
-                    
-                  </select>
-                 
-                </p>
-                 
-                </form>
+        <div>
+            <output *ngIf=successResponse class="success"><b>{{successResponse}}</b></output>
         </div>
-
-    <div class="detail">
-        <form [formGroup]="addForm">
+        <br>
             <div class="form-group">
-                <label >Price</label>
-                <input type="text" class="form-control">
+                <label >Product Name</label>
+                <input type="text" class="form-control" id = "name" 
+                    [(ngModel)] = "products.name" name = "name">
             </div>
     
             <div class="form-group">
-                <input  type="number" class="form-control" id="formGroupExampleInput" placeholder="1" style="margin-top: 20px;">
-              </div>   
-              
-        </form>
-    </div>
-    <input type="submit" value="Sumbit " class = "btn btn-dark" style="margin-top: 20px;">
+                <label >Details</label><br>
+                <textarea ng-model="myTextarea" class="form-control" id = "description" 
+                    [(ngModel)] = "products.description" name = "description"></textarea>
+            </div>     
+        
+        <label class="form-group"> 
+            Cagetory    </label>
+        <div class="col-sm-10">
+            <select name="Cagetories" (change)="ChangeCagetory($event)" class="form-control"
+            id = "catedoryID" [(ngModel)] = "products.catedoryID" name = "catedoryID">
+                <option>--Select--</option>
+                <option [value]="cag.id" *ngFor="let cag of CagetoriesList">
+                    {{cag.name}}
+                    
+                </option>
+                    
+            </select>
+        </div>
+        Select value:{{SelectesValue}}
+        <div class="detail">
+                <div class="form-group">
+                    <label >Price</label>
+                    <input type="number" class="form-control" id = "price" 
+                    [(ngModel)] = "products.price" name = "price">
+                </div>
+        
+                <div class="form-group">
+                    <label >Quantity</label>
+                    <input  type="number" class="form-control" >
+                  </div>   
+        </div>
+
+        <button class = "btn btn-success" type ="submit">Submit</button>
+    </form>
+        
+    
 </div>
