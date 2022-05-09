@@ -14,21 +14,19 @@
         <br>
             <div class="form-group">
                 <label >Product Name</label>
-                <input type="text" class="form-control" id = "name" 
-                    [(ngModel)] = "products.name" name = "name">
+                <input type="text" class="form-control" >
             </div>
     
             <div class="form-group">
                 <label >Details</label><br>
-                <textarea ng-model="myTextarea" class="form-control" id = "description" 
-                    [(ngModel)] = "products.description" name = "description"></textarea>
+                <textarea ng-model="myTextarea" class="form-control" ></textarea>
             </div>     
         
         <label class="form-group"> 
             Cagetory    </label>
         <div class="col-sm-10">
             <select name="Cagetories" (change)="ChangeCagetory($event)" class="form-control"
-            id = "catedoryID" [(ngModel)] = "products.catedoryID" name = "catedoryID">
+            >
                 <option>--Select--</option>
                 <option [value]="cag.id" *ngFor="let cag of CagetoriesList">
                     {{cag.name}}
@@ -41,8 +39,7 @@
         <div class="detail">
                 <div class="form-group">
                     <label >Price</label>
-                    <input type="number" class="form-control" id = "price" 
-                    [(ngModel)] = "products.price" name = "price">
+                    <input type="number" class="form-control" >
                 </div>
         
                 <div class="form-group">
