@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { ShopickService } from '../shopick.service';
 
 @Component({
   selector: 'app-upload',
@@ -8,8 +10,9 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 })
 export class UploadComponent implements OnInit {
 
-  contactForm!:FormGroup 
-  categories = [
+  products:Product=new Product();
+
+  /*categories = [
     { id: 1, name: "men's clothing" },
     { id: 2, name: "women's clothing" },
     { id: 3, name: "Mobile and accessories" },
@@ -20,35 +23,82 @@ export class UploadComponent implements OnInit {
     { id: 8, name: "bag" },
     { id: 9, name: "food and drink" },
     { id: 10, name: "home appliances" }
-  ];
+  ];*/
+  
+  CagetoriesList:any;
+  SelectesValue:any;
+
+  uploadedImage!: File;
+  dbImage: any;
+  postResponse: any;
+  successResponse?: string ;
+  image: any;
+
   
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder,private httpClient: HttpClient,
+      private service:ShopickService) { }
 
   ngOnInit(): void {
-    this.contactForm=this.fb.group({
-      category:[null]
-    });
-  }
-  submit() {
-    console.log("Form Submitted")
-    console.log(this.contactForm.value)
+    
+
+    this.service.getCagetory().subscribe((data:any)=>
+    this.CagetoriesList=data)
   }
   
-  url="./assets/image-detail/upload-files.jpg";
-  onselecrFile(e:any){
-    if(e.target.files){
-      var reader = new FileReader();
-      reader.readAsDataURL(e.target.files[0]);
-      reader.onload=(event:any)=>{
-        this.url=event.target.result;
+ 
+ //------ upload image ------
+ public onImageUpload(event:any) {
+    this.uploadedImage = event.target.files[0];
+  }
+ imageUploadAction() {
+  const imageFormData = new FormData();
+  imageFormData.append('image', this.uploadedImage, this.uploadedImage.name);
+
+
+  this.httpClient.post('http://localhost:8080/upload/image', imageFormData, { observe: 'response' })
+    .subscribe((response) => {
+      if (response.status === 200) {
+        this.postResponse = response;
+        this.successResponse = this.postResponse.body.message;
+      } else {
+        this.successResponse = 'Image not uploaded due to some error!';
       }
     }
+    );
   }
- addForm = new FormGroup({
-  productName: new FormControl('Vishwas'),
-  pDetail: new FormControl('')
- });
+
+viewImage() {
+  this.httpClient.get('http://localhost:8080/get/image/info/' + this.image)
+    .subscribe(
+      res => {
+        this.postResponse = res;
+        this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
+      }
+    );
+}
+
+//------- cagetory --------
+
+ChangeCagetory(e:any){
+  console.log(e.target.value);
+  this.SelectesValue=e.target.value;
+}
+
+
+//------- submit --------
+saveProduct(){
+  this.service.UploadProduct(this.products).subscribe(data =>{
+    console.log(data);
+  })
+}
+
+onSubmit(){
+  this.saveProduct();
+  //this.imageUploadAction();
+}
+
+
 
  
  
