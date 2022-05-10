@@ -17,7 +17,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ShopComponent } from './shop/shop.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductListComponent } from './product-list/product-list.component';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ProductService } from './services/product.service';
 import { Router, Routes } from '@angular/router';
 import { ProductCategoryMenuComponent } from './product-category-menu/product-category-menu.component';
@@ -40,6 +40,8 @@ import {
 
 import shopickAppConfig from './config/shopick-app-config';
 import { MembersPageComponent } from './members-page/members-page.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 
 const oktaConfig = Object.assign({
@@ -77,6 +79,7 @@ const oktaConfig = Object.assign({
     LoginComponent,
     LoginStatusComponent,
     MembersPageComponent,
+    OrderHistoryComponent,
 
   ],
   imports: [
@@ -90,7 +93,8 @@ const oktaConfig = Object.assign({
     OktaAuthModule
 
   ],
-  providers: [ProductService, {provide: OKTA_CONFIG , useValue: oktaConfig}],
+  providers: [ProductService, {provide: OKTA_CONFIG , useValue: oktaConfig},
+              {provide: HTTP_INTERCEPTORS , useClass: AuthInterceptorService , multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
