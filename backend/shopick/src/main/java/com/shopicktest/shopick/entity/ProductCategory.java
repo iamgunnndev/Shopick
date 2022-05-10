@@ -33,6 +33,17 @@ public class ProductCategory {
 
    
     @OneToMany(mappedBy = "category")
-    private List<Product> categoryProduct;
+    private List<Product> categoryProduct; 
+    
+    public void add(Product item) {
+		if(item != null) {
+			if(products == null) {
+				products = new HashSet<>();
+			}
+			
+			products.add(item);
+			item.setCategory(this);
+		}
+	}
 
 }
