@@ -1,5 +1,7 @@
 package com.shopicktest.shopick.entity;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Date;
 
@@ -18,6 +20,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Entity
 @Table(name = "product")
 @Data
+@Getter
+@Setter
 public class Product {
 
     @Id
@@ -27,7 +31,7 @@ public class Product {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "category_id" , nullable = false)
+    @JoinColumn(name = "category_id" , nullable = false,referencedColumnName = "id")
     private ProductCategory category;
 
     @Column (name = "sku")
@@ -58,5 +62,6 @@ public class Product {
     @Column (name = "last_updated")
     @UpdateTimestamp
     private Date lastUpDate;
+    
     
 }
