@@ -8,14 +8,5 @@ import { Product } from './common/product';
 })
 export class ShopickService {
 
-  baseURL1 = "http://localhost:8080";
-  constructor(private httpClient: HttpClient) { }
-
-  UploadProduct(products:Product): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL1}/uploadProduct`,products);
-  }
-
-  getCagetory(){
-    return this.httpClient.get<any>(`${this.baseURL1}/getCagetories`);
-  }
+  
 }

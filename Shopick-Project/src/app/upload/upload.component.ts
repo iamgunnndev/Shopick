@@ -1,8 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Product } from '../common/product';
+import { ProductCategory } from '../common/product-category';
+import { ShopickFormService } from '../services/shopick-form.service';
 import { ShopickService } from '../shopick.service';
+import { ShopickValidators } from '../validators/shopick-validators';
 
 @Component({
   selector: 'app-upload',
@@ -26,8 +30,7 @@ export class UploadComponent implements OnInit {
     { id: 10, name: "home appliances" }
   ];*/
   
-  CagetoriesList:any;
-  SelectesValue:any;
+  categories: ProductCategory[]=[];
 
   uploadedImage!: File;
   dbImage: any;
@@ -35,16 +38,42 @@ export class UploadComponent implements OnInit {
   successResponse?: string ;
   image: any;
 
-  
+  uploadFormGroup!: FormGroup;
 
-  constructor(private fb:FormBuilder,private httpClient: HttpClient,
-      private service:ShopickService) { }
+  constructor(private httpClient: HttpClient,
+    private service:ShopickFormService,
+    private formBuilder: FormBuilder,
+    private router: Router) { }
 
   ngOnInit(): void {
-    
+  
+    this.service.getCategory().subscribe(
+      data =>{
+        console.log("Retrieved categories: "+ JSON.stringify(data));
+        this.categories = data;
+      }
+    );
 
-    this.service.getCagetory().subscribe((data:any)=>
-    this.CagetoriesList=data)
+    this.uploadFormGroup = this.formBuilder.group({
+      addProduct: this.formBuilder.group({
+        name: new FormControl('',
+                    [Validators.required, 
+                    Validators.minLength(2), 
+                    ShopickValidators.notOnlyWhitespace]),
+        description: new FormControl('',
+                    [Validators.required, 
+                    Validators.minLength(2), 
+                    ShopickValidators.notOnlyWhitespace]),
+        unit_price: new FormControl('',
+                    [Validators.required]),
+        image_url: new FormControl(''),
+        units_in_stock: new FormControl('',
+                    [Validators.required]),
+        category_id: new FormControl('',
+                    [Validators.required, 
+                    ShopickValidators.notOnlyWhitespace])
+      })
+  });
   }
   
  
@@ -82,24 +111,25 @@ viewImage() {
 //------- cagetory --------
 
 ChangeCagetory(e:any){
-  console.log(e.target.value);
-  this.SelectesValue=e.target.value;
+  
 }
 
 
 //------- submit --------
-saveProduct(){
-  this.service.UploadProduct(this.products).subscribe(data =>{
-    console.log(data);
-  })
-}
+
 
 onSubmit(){
-  this.saveProduct();
-  //this.imageUploadAction();
+  if(this.uploadFormGroup.invalid){
+    this.uploadFormGroup.markAllAsTouched();
+  }
 }
 
-
+ get name() {return this.uploadFormGroup .get('addProduct.name');}
+ get description() {return this.uploadFormGroup .get('addProduct.description');}
+ get price() {return this.uploadFormGroup .get('addProduct.unit_price');}
+ get image_url() {return this.uploadFormGroup .get('addProduct.image_url');}
+ get iventory() {return this.uploadFormGroup .get('addProduct.units_in_stock');}
+ get category() {return this.uploadFormGroup .get('addProduct.category_id');}
 
  
  

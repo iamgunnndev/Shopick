@@ -63,7 +63,6 @@ public class Product {
     @UpdateTimestamp
     private Date lastUpDate;
     
-    private Product product;
     
     
 }

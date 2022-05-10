@@ -1,13 +1,23 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
+import { ProductCategory } from '../common/product-category';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopickFormService {
 
-  constructor() { }
+  
+  private categoryURL ='http://localhost:8080/api/categories';
+  constructor(private httpClient: HttpClient) { }
 
+  getCategory(): Observable<ProductCategory[]>{
+
+    return this.httpClient.get<GetResponseCategories>(this.categoryURL).pipe(
+      map(response => response._embedded.categories)
+    );
+  }
 
   getCreditCardMonths(startMonth: number): Observable<number[]> {
 
@@ -40,4 +50,12 @@ export class ShopickFormService {
     return of(data);
   }
 
+  
+
+}
+
+interface GetResponseCategories{
+  _embedded:{
+    categories: ProductCategory[];
+  }
 }
