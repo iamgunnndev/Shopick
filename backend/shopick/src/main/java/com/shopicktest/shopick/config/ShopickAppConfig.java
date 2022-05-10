@@ -6,9 +6,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-
-public class ShopickAppConfig  implements WebMvcConfigurer{
-    
+public class ShopickAppConfig implements WebMvcConfigurer {
 
     @Value("${allowed.origins}")
     private String[] theAllowedOrigins;
@@ -20,8 +18,7 @@ public class ShopickAppConfig  implements WebMvcConfigurer{
     public void addCorsMappings(CorsRegistry cors) {
 
         // set up cors mapping
-        cors.addMapping(basePath + "/**")
-        .allowedOrigins(theAllowedOrigins);
+        cors.addMapping(basePath + "/**").allowedOrigins(theAllowedOrigins);
     }
-
 }
+
