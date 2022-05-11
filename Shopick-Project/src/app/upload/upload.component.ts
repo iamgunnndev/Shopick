@@ -1,5 +1,12 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Product } from '../common/product';
+import { ProductCategory } from '../common/product-category';
+import { ShopickFormService } from '../services/shopick-form.service';
+import { ShopickService } from '../shopick.service';
+import { ShopickValidators } from '../validators/shopick-validators';
 
 @Component({
   selector: 'app-upload',
@@ -8,8 +15,9 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 })
 export class UploadComponent implements OnInit {
 
-  contactForm!:FormGroup 
-  categories = [
+  products:Product=new Product();
+
+  /*categories = [
     { id: 1, name: "men's clothing" },
     { id: 2, name: "women's clothing" },
     { id: 3, name: "Mobile and accessories" },
@@ -20,35 +28,113 @@ export class UploadComponent implements OnInit {
     { id: 8, name: "bag" },
     { id: 9, name: "food and drink" },
     { id: 10, name: "home appliances" }
-  ];
+  ];*/
   
+  categories: ProductCategory[]=[];
 
-  constructor(private fb:FormBuilder) { }
+  uploadedImage!: File;
+  dbImage: any;
+  postResponse: any;
+  successResponse?: string ;
+  image: any;
+
+  uploadFormGroup!: FormGroup;
+
+  constructor(private httpClient: HttpClient,
+    private service:ShopickFormService,
+    private formBuilder: FormBuilder,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.contactForm=this.fb.group({
-      category:[null]
-    });
-  }
-  submit() {
-    console.log("Form Submitted")
-    console.log(this.contactForm.value)
+  
+    this.service.getCategory().subscribe(
+      data =>{
+        console.log("Retrieved categories: "+ JSON.stringify(data));
+        this.categories = data;
+      }
+    );
+
+    this.uploadFormGroup = this.formBuilder.group({
+      addProduct: this.formBuilder.group({
+        name: new FormControl('',
+                    [Validators.required, 
+                    Validators.minLength(2), 
+                    ShopickValidators.notOnlyWhitespace]),
+        description: new FormControl('',
+                    [Validators.required, 
+                    Validators.minLength(2), 
+                    ShopickValidators.notOnlyWhitespace]),
+        unit_price: new FormControl('',
+                    [Validators.required]),
+        image_url: new FormControl(''),
+        units_in_stock: new FormControl('',
+                    [Validators.required]),
+        category_id: new FormControl('',
+                    [Validators.required])
+      })
+  });
   }
   
-  url="./assets/image-detail/upload-files.jpg";
-  onselecrFile(e:any){
-    if(e.target.files){
-      var reader = new FileReader();
-      reader.readAsDataURL(e.target.files[0]);
-      reader.onload=(event:any)=>{
-        this.url=event.target.result;
+ 
+ //------ upload image ------
+ public onImageUpload(event:any) {
+    this.uploadedImage = event.target.files[0];
+  }
+ imageUploadAction() {
+  const imageFormData = new FormData();
+  imageFormData.append('image', this.uploadedImage, this.uploadedImage.name);
+
+
+  this.httpClient.post('http://localhost:8080/upload/image', imageFormData, { observe: 'response' })
+    .subscribe((response) => {
+      if (response.status === 200) {
+        this.postResponse = response;
+        this.successResponse = this.postResponse.body.message;
+      } else {
+        this.successResponse = 'Image not uploaded due to some error!';
       }
     }
+    );
   }
- addForm = new FormGroup({
-  productName: new FormControl('Vishwas'),
-  pDetail: new FormControl('')
- });
+
+viewImage() {
+  this.httpClient.get('http://localhost:8080/get/image/info/' + this.image)
+    .subscribe(
+      res => {
+        this.postResponse = res;
+        this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
+      }
+    );
+}
+
+//------- cagetory --------
+
+ChangeCagetory(formGroupName: string){
+  const formGroup = this.uploadFormGroup.get(formGroupName);
+
+  const categooryId = formGroup!.value.category_id.id;
+  const categoName = formGroup!.value.category_id.categoryName;
+
+  console.log(`${formGroupName} categoory id : ${categooryId}`);
+  console.log(`${formGroupName} categoory name: ${categoName}`);
+}
+
+
+//------- submit --------
+
+
+onSubmit(){
+  if(this.uploadFormGroup.invalid){
+    this.uploadFormGroup.markAllAsTouched();
+  }
+}
+
+ get name() {return this.uploadFormGroup .get('addProduct.name');}
+ get description() {return this.uploadFormGroup .get('addProduct.description');}
+ get price() {return this.uploadFormGroup .get('addProduct.unit_price');}
+ get image_url() {return this.uploadFormGroup .get('addProduct.image_url');}
+ get iventory() {return this.uploadFormGroup .get('addProduct.units_in_stock');}
+ get category() {return this.uploadFormGroup .get('addProduct.category_id');}
 
  
  

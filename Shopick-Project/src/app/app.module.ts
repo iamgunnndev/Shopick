@@ -16,6 +16,45 @@ import { UploadComponent } from './upload/upload.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ShopComponent } from './shop/shop.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductListComponent } from './product-list/product-list.component';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { ProductService } from './services/product.service';
+import { Router, Routes } from '@angular/router';
+import { ProductCategoryMenuComponent } from './product-category-menu/product-category-menu.component';
+import { SearchComponent } from './search/search.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CartStatusComponent } from './cart-status/cart-status.component';
+import { CartDetailsComponent } from './cart-details/cart-details.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { LoginComponent } from './login/login.component';
+import { LoginStatusComponent } from './login-status/login-status.component';
+
+
+
+import {
+  OKTA_CONFIG,
+  OktaAuthModule,
+  OktaCallbackComponent,
+
+} from '@okta/okta-angular';
+
+import shopickAppConfig from './config/shopick-app-config';
+import { MembersPageComponent } from './members-page/members-page.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
+
+
+const oktaConfig = Object.assign({
+  onAuthRequired: (oktaAuth:any,injector:any) => {
+    const router = injector.get(Router);
+
+    // Redirect the user to your custom login page
+    router.navigate(['/login']);
+  }
+}, shopickAppConfig.oidc);
+
+
+
 
 @NgModule({
   declarations: [
@@ -30,6 +69,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PayComponent,
     UploadComponent,
     ShopComponent,
+    ProductListComponent,
+    ProductCategoryMenuComponent,
+    SearchComponent,
+    ProductDetailsComponent,
+    CartStatusComponent,
+    CartDetailsComponent,
+    CheckoutComponent,
+    LoginComponent,
+    LoginStatusComponent,
+    MembersPageComponent,
+    OrderHistoryComponent,
 
   ],
   imports: [
@@ -37,10 +87,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     ReactiveFormsModule,
     CarouselModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    NgbModule,
+    OktaAuthModule
 
   ],
-  providers: [],
+  providers: [ProductService, {provide: OKTA_CONFIG , useValue: oktaConfig},
+              {provide: HTTP_INTERCEPTORS , useClass: AuthInterceptorService , multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
