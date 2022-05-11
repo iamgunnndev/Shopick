@@ -9,13 +9,13 @@ import { ProductCategory } from '../common/product-category';
 export class ShopickFormService {
 
   
-  private categoryURL ='http://localhost:8080/api/categories';
+  private categoryURL ='http://localhost:8080/api/product-category';
   constructor(private httpClient: HttpClient) { }
 
   getCategory(): Observable<ProductCategory[]>{
 
     return this.httpClient.get<GetResponseCategories>(this.categoryURL).pipe(
-      map(response => response._embedded.categories)
+      map(response => response._embedded.productCategory)
     );
   }
 
@@ -56,6 +56,6 @@ export class ShopickFormService {
 
 interface GetResponseCategories{
   _embedded:{
-    categories: ProductCategory[];
+    productCategory: ProductCategory[];
   }
 }

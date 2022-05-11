@@ -70,8 +70,7 @@ export class UploadComponent implements OnInit {
         units_in_stock: new FormControl('',
                     [Validators.required]),
         category_id: new FormControl('',
-                    [Validators.required, 
-                    ShopickValidators.notOnlyWhitespace])
+                    [Validators.required])
       })
   });
   }
@@ -110,8 +109,14 @@ viewImage() {
 
 //------- cagetory --------
 
-ChangeCagetory(e:any){
-  
+ChangeCagetory(formGroupName: string){
+  const formGroup = this.uploadFormGroup.get(formGroupName);
+
+  const categooryId = formGroup!.value.category_id.id;
+  const categoName = formGroup!.value.category_id.categoryName;
+
+  console.log(`${formGroupName} categoory id : ${categooryId}`);
+  console.log(`${formGroupName} categoory name: ${categoName}`);
 }
 
 
