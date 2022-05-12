@@ -20,9 +20,11 @@ import { LoginComponent } from './login/login.component';
 import { OktaAuthGuard, OktaCallbackComponent } from '@okta/okta-angular';
 import { MembersPageComponent } from './members-page/members-page.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
+import { OrderCompletedComponent } from './order-completed/order-completed.component';
 
 
 const routes: Routes = [
+  {path: 'order-completed' , component: OrderCompletedComponent},
   {path: 'order-history', component: OrderHistoryComponent, canActivate: [ OktaAuthGuard ]},
   {path:'members' , component: MembersPageComponent, canActivate: [OktaAuthGuard]},
   {path: 'login/callback', component: OktaCallbackComponent},

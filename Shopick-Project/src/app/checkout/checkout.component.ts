@@ -283,8 +283,7 @@ get creditCardSecurityCode() { return this.checkoutFormGroup.get('creditCard.sec
                   address: {
                     line1: purchase.billingAddress.address,
                     city: purchase.billingAddress.district,
-                    line2: purchase.billingAddress.subdistrict,
-                    country: purchase.billingAddress.province,
+                    line2: purchase.billingAddress.subdistrict,            
                     postal_code: purchase.billingAddress.zipCode,
                   }
                   }

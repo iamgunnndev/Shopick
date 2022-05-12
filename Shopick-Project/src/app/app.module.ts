@@ -42,6 +42,7 @@ import shopickAppConfig from './config/shopick-app-config';
 import { MembersPageComponent } from './members-page/members-page.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { OrderCompletedComponent } from './order-completed/order-completed.component';
 
 
 const oktaConfig = Object.assign({
@@ -80,6 +81,7 @@ const oktaConfig = Object.assign({
     LoginStatusComponent,
     MembersPageComponent,
     OrderHistoryComponent,
+    OrderCompletedComponent,
 
   ],
   imports: [
