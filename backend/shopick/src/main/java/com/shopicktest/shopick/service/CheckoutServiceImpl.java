@@ -14,8 +14,6 @@ import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
 
-
-
 import java.util.*;
 
 
