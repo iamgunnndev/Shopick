@@ -121,7 +121,7 @@ const theEmail = JSON.parse(this.storage.getItem('userEmail')!);
                               ShopickValidators.notOnlyWhitespace]),
         zipCode: new FormControl('', 
                               [Validators.required, 
-                              Validators.minLength(2), 
+                              Validators.minLength(5), 
                               ShopickValidators.notOnlyWhitespace])
       }),
 
@@ -298,7 +298,7 @@ get creditCardSecurityCode() { return this.checkoutFormGroup.get('creditCard.sec
               // call REST API via the CheckoutService
               this.checkoutService.placeOrder(purchase).subscribe({
                 next: (response: { orderTrackingNumber: any; }) => {
-                  alert(`Your order has been received.\nOrder tracking number: ${response.orderTrackingNumber}`);
+                  alert(`Payment Approved! \n Your order has been received.\nOrder tracking number: ${response.orderTrackingNumber}`);
 
                   // reset cart
                   this.resetCart();

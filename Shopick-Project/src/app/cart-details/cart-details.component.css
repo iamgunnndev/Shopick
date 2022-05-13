@@ -2,3 +2,7 @@
     position: absolute;  
     right: 25%;   
    }
+
+.card-body {
+    position: relative;
+}

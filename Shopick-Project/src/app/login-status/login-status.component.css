@@ -8,12 +8,14 @@
     right:0;
     min-width:95px;
     color:#fff;
-    border:10px solid #205b8d;
+    border:10px solid #000000;
     -webkit-border-radius:3px;
     -moz-border-radius:3px;
     border-radius:43px;
-    background:#205b8d
+    background:#000000
 }
+
+
 
 /*
     Copy from styles.css -> .form-header

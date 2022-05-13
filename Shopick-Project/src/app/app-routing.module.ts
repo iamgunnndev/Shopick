@@ -24,6 +24,7 @@ import { OrderCompletedComponent } from './order-completed/order-completed.compo
 
 
 const routes: Routes = [
+  {path: 'products/:prodId/:catId', component: ProductDetailsComponent},
   {path: 'order-completed' , component: OrderCompletedComponent},
   {path: 'order-history', component: OrderHistoryComponent, canActivate: [ OktaAuthGuard ]},
   {path:'members' , component: MembersPageComponent, canActivate: [OktaAuthGuard]},
@@ -38,14 +39,14 @@ const routes: Routes = [
   {path: 'category' , component: ProductListComponent},
   {path: 'products' , component: ProductListComponent},
   {path:'detail/:id',component:DetailComponent},
-  {path:'member',component:LoginRegisterComponent},
+  
   {path:'user/profile',component:ProfileComponent},
   {path:'user/purchase',component:PurchaseComponent},
   {path:'user/edit-profile',component:EditProfileComponent},
   {path:'payment',component:PayComponent},
   {path:'upload',component:UploadComponent},
   {path:'shop',component:ShopComponent},
-  {path:'cart',component:CartComponent},
+ 
   {path:'product-list',component:ProductListComponent},
   {path: '' , redirectTo: '/products' , pathMatch: 'full'},
   {path: '**' , redirectTo: '/products' , pathMatch: 'full'}

@@ -245,16 +245,16 @@ input.au-input.au-input-xl{
     font-size:22px;
     float:left;
     margin-top:16px;
-    color:rgb(0, 64, 117);
+    color:rgb(0, 0, 0);
     margin-left:15px
 }
 
 .total{
-    background:#205b8d;
+    background:#000000;
     line-height:43px;
     color:#fff;
     border-radius:30px;
-    border:1px solid #0da8e4;
+    border:1px solid #000000;
     float:left;
     margin-top:7px;
     padding-left:17px
@@ -283,15 +283,15 @@ input.au-input.au-input-xl{
     right:0;
     min-width:95px;
     color:#fff;
-    border:1px solid #205b8d;
+    border:0px solid #95a5a6;
     -webkit-border-radius:3px;
     -moz-border-radius:3px;
     border-radius:43px;
-    background:#205b8d
+    background:#000000
 }
 
 .au-btn-submit:hover{
-    background:#05143f
+    background:#3b3b3b
 }
 
 .au-btn-submit>i{
@@ -481,7 +481,7 @@ input.au-input.au-input-xl{
     line-height:inherit
 }
 .header-mobile .navbar-mobile .navbar-mobile-list li a:hover{
-    color:#0da8e4
+    color:#000000
 }
 .header-mobile .navbar-mobile .navbar-mobile-list li a>i{
     margin-right:19px
@@ -542,7 +542,7 @@ input.au-input.au-input-xl{
 .price{
     margin:15px 0 0;
     font-weight:800;
-    color:#004966
+    color:#000000
 }
 .product-box h1{
     font-size:18px;
@@ -655,7 +655,7 @@ label.date{
     top:-1px;
     width:9px;
     height:15px;
-    border:solid #0da8e4;
+    border:solid #000000;
     border-width:0 4px 4px 0;
     -webkit-border-radius:2px;
     -moz-border-radius:2px;
@@ -690,7 +690,7 @@ table.table.table-bordered{
     border:1px solid #dee2e6
 }
 table.table.table-bordered th{
-    BACKGROUND:#0da8e4;
+    BACKGROUND:#000000;
     color:#fff;
     font-size:14px;
     padding:7px
@@ -717,7 +717,7 @@ table.table.table-bordered th{
  .price{
     margin:15px 0 0;
     font-weight:800;
-    color:#0da8e4
+    color:#000000
 }
 .detail-section{
     margin-top:60px
@@ -735,12 +735,12 @@ table.table.table-bordered th{
  */
 
  .btn-info{
-    color:#fff;
-    background-color:#0da8e4!important;
-    border-color:#0da8e4!important
+    color:rgb(255, 255, 255);
+    background-color:#ffffff!important;
+    border-color:#000000!important
 }
 a.primary-btn{
-    background:#05143f;
+    background:#000000;
     padding:7px 20px;
     text-align:center;
     display:inline-block;
@@ -750,7 +750,7 @@ a.primary-btn{
     margin-top:5px
 }
 a.primary-btn:hover{
-    background:#0da8e4;
+    background:#3b3b3b;
     color:#fff
 }
 
@@ -825,7 +825,7 @@ footer ul li{
         font-size:22px;
         float:left;
         margin-top:16px;
-        color:#205b8d;
+        color:#000000;
         margin-left:15px
     }
     .header-mobile .header-mobile-bar{
@@ -920,7 +920,7 @@ footer ul li{
         font-size:22px;
         float:left;
         margin-top:16px;
-        color:#205b8d;
+        color:#000000;
         margin-left:15px
     }
         .header-wrap2{
@@ -1010,7 +1010,7 @@ footer ul li{
         font-size:18px;
         float:left;
         margin-top:16px;
-        color:#03a9f4;
+        color:#000000;
         margin-left:15px
     }
     .total span{
